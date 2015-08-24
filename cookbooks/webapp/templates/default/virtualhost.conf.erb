@@ -1,0 +1,38 @@
+NameVirtualHost *:80
+
+<VirtualHost *:80>
+  DocumentRoot "/home/www/htdocs"
+  DirectoryIndex index.html
+AddType application/x-httpd-php .php
+AddType application/x-httpd-php-source .phps
+  ErrorLog      /home/www/log/error_log
+  CustomLog     /home/www/log/access_log common
+<Directory "/home/www/htdocs">
+    AllowOverride All
+    Allow from All
+  EnableMMAP Off
+  EnableSendfile Off
+</Directory>
+</VirtualHost>
+
+NameVirtualHost *:443
+
+<VirtualHost *:443>
+  DocumentRoot "/home/www/htdocs"
+  ServerName webapp.vagrantshare.com
+  ServerAlias localhost
+  DirectoryIndex index.html
+AddType application/x-httpd-php .php
+AddType application/x-httpd-php-source .phps
+  ErrorLog      /home/www/log/ssl_error_log
+  CustomLog     /home/www/log/ssl_access_log common
+    SSLEngine on
+    SSLCertificateFile /etc/pki/tls/certs/localhost.crt
+    SSLCertificateKeyFile /etc/pki/tls/private/localhost.key
+<Directory "/home/www/htdocs">
+    AllowOverride All
+    Allow from All
+  EnableMMAP Off
+  EnableSendfile Off
+</Directory>
+</VirtualHost>
