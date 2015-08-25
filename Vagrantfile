@@ -5,7 +5,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.hostname = "centos"
   config.vm.box_url = "http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_centos-6.5_chef-provisionerless.box"
 
-  # host(127.0.0.1)‚Ì8080”Ô‚ğAguest(‰¼‘zŠÂ‹«)‚Ì80”Ô‚Éƒ|[ƒgƒtƒHƒ[ƒh‚·‚é
+  # host(127.0.0.1)ã®8080ç•ªã‚’ã€guest(ä»®æƒ³ç’°å¢ƒ)ã®80ç•ªã«ãƒãƒ¼ãƒˆãƒ•ã‚©ãƒ¯ãƒ¼ãƒ‰ã™ã‚‹
   config.vm.network :forwarded_port, guest: 80, host: 8080
   config.vm.network :forwarded_port, guest: 443, host: 443
   # Chef
@@ -14,10 +14,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe "webapp"
   end
 
-   # ‰¼‘zŠÂ‹«‚ÉƒCƒ“ƒXƒg[ƒ‹‚·‚échef‚Ìƒo[ƒWƒ‡ƒ“
+   # ä»®æƒ³ç’°å¢ƒã«ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã™ã‚‹chefã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³
   config.omnibus.chef_version = :latest
 
-  config.vm.synced_folder "D:\\tmp\\vagrant\\webapp\\www", "/home/www"
+  config.vm.synced_folder "D:\\webapp\\www", "/home/www"
 
 end
 
