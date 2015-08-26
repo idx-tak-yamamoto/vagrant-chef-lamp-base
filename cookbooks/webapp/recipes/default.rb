@@ -16,7 +16,7 @@ end
 #  sudo service httpd start
 #  sudo chkconfig on
 service "httpd" do
-  action [:enable]
+  action [:start,:enable]
   supports :status => true, :restart => true, :reload => true
 end
 

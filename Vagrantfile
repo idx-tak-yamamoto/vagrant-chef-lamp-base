@@ -17,7 +17,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
    # 仮想環境にインストールするchefのバージョン
   config.omnibus.chef_version = :latest
 
-  config.vm.synced_folder "D:\\tmp\\vagrant\\webapp\\www", "/home/www"
+  config.vm.synced_folder "D:\\webapp\\www", "/home/www"
 
 end
 
